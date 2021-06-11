@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Main-Class: com.ronny.Main
+Class-Path: commons-logging-1.2.jar sensor-properties-1.0.jar elasticsea
+ rch-rest-client-7.13.0.jar httpcore-4.4.14.jar httpclient-4.5.13.jar or
+ g.eclipse.paho.client.mqttv3_1.2.5.jar httpasyncclient-4.1.4.jar httpco
+ re-nio-4.4.14.jar json-simple-1.1.1.jar
+

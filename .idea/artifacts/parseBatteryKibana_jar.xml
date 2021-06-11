@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact name="parseBatteryKibana:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/parseBatteryKibana_jar</output-path>
+    <root id="root">
+      <element id="archive" name="parseBatteryKibana.jar">
+        <element id="module-output" name="parseBatteryKibana" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/../commons-logging-1.2.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../sensor-properties-1.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../elasticsearch-rest-client-7.13.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../httpcore-4.4.14.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../httpclient-4.5.13.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../org.eclipse.paho.client.mqttv3_1.2.5.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../httpasyncclient-4.1.4.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../httpcore-nio-4.4.14.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../json-simple-1.1.1.jar" />
+    </root>
+  </artifact>
+</component>

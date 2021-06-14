@@ -16,12 +16,11 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;  // Import the IOException class to handle errors
 import java.io.InputStream;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 import java.util.Random;
-
-
 
 import org.apache.http.HttpHost;
 
@@ -83,6 +82,32 @@ public class Main {
         }
     }
 
+    public void updateAverageDb( float stateOfCharge, float powerConsumedFromStorage, float powerBuffered,  int loggLevel) {
+
+        LocalDateTime now = LocalDateTime.now();
+
+        // for database connection purposes
+        String url_con = "jdbc:postgresql://192.168.2.203:5432/energy";
+        String username = "postgres";
+        String password = "postgres";
+
+        String query = "INSERT INTO batterystate(currenttime, soc, charging, consuming)"
+                + " VALUES(?, ?, ?, ?)";
+
+        try (Connection dbConnection = DriverManager.getConnection(url_con, username, password);
+             PreparedStatement pst = dbConnection.prepareStatement(query)) {
+                pst.setTimestamp(1, Timestamp.valueOf(now));
+                pst.setFloat(2, stateOfCharge);
+                pst.setFloat(3, powerBuffered);
+                pst.setFloat(4, powerConsumedFromStorage);
+                pst.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+
+
+    }
 
     public void run() {
         System.out.println("TopicSubscriber initializing...");
@@ -178,6 +203,7 @@ public class Main {
 
                             updateDb(source, stateOfCharge, powerConsumedFromStorage, powerBuffered, finalTimeOffset,
                                     finalKibanaHost, finalKibanaPort, finalLoggLevel);
+                            updateAverageDb(stateOfCharge, powerConsumedFromStorage, powerBuffered, finalLoggLevel);
                         }
                     } catch (Exception pe) {
                         //  System.out.println("position: " + pe.getPosition());

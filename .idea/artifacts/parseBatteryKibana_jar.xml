@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/parseBatteryKibana_jar</output-path>
     <root id="root">
       <element id="archive" name="parseBatteryKibana.jar">
-        <element id="module-output" name="parseBatteryKibana" />
+        <element id="module-output" name="parseEnvironmentKibana" />
       </element>
       <element id="file-copy" path="$PROJECT_DIR$/../commons-logging-1.2.jar" />
       <element id="file-copy" path="$PROJECT_DIR$/../sensor-properties-1.0.jar" />
